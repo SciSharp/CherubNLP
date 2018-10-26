@@ -12,7 +12,7 @@ namespace CherubNLP.UnitTest
         public TestEssential()
         {
             var rootDir = Path.GetFullPath($"{Directory.GetCurrentDirectory()}{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}..{Path.DirectorySeparatorChar}");
-            var settingsDir = Path.Combine(rootDir, "CherubNLP", "Settings");
+            var settingsDir = Path.Combine(rootDir, "Settings");
 
             ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
             var settings = Directory.GetFiles(settingsDir, "*.json");
