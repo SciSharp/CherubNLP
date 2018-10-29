@@ -29,10 +29,7 @@ namespace CherubNLP.Tag
         {
             List<Type> types = new List<Type>();
 
-            types.AddRange(Assembly.Load(new AssemblyName("CherubNLP.Core"))
-                .GetTypes().Where(x => !x.IsAbstract && !x.FullName.StartsWith("<>f__AnonymousType")).ToList());
-
-            types.AddRange(Assembly.Load(new AssemblyName("CherubNLP.NLP"))
+            types.AddRange(Assembly.Load(new AssemblyName("CherubNLP"))
                 .GetTypes().Where(x => !x.IsAbstract && !x.FullName.StartsWith("<>f__AnonymousType")).ToList());
 
             Type type = types.FirstOrDefault(x => x.Name == name);

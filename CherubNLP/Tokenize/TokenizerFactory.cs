@@ -11,7 +11,7 @@ namespace CherubNLP.Tokenize
     /// CherubNLP Tokenizer Factory
     /// Tokenizers divide strings into lists of substrings.
     /// The particular tokenizer requires implement interface 
-    /// models to be installed.CherubNLP.NLP also provides a simpler, regular-expression based tokenizer, which splits text on whitespace and punctuation.
+    /// models to be installed.CherubNLP also provides a simpler, regular-expression based tokenizer, which splits text on whitespace and punctuation.
     /// </summary>
     public class TokenizerFactory
     {
@@ -30,10 +30,7 @@ namespace CherubNLP.Tokenize
         {
             List<Type> types = new List<Type>();
 
-            types.AddRange(Assembly.Load(new AssemblyName("CherubNLP.Core"))
-                .GetTypes().Where(x => !x.IsAbstract && !x.FullName.StartsWith("<>f__AnonymousType")).ToList());
-
-            types.AddRange(Assembly.Load(new AssemblyName("CherubNLP.NLP"))
+            types.AddRange(Assembly.Load(new AssemblyName("CherubNLP"))
                 .GetTypes().Where(x => !x.IsAbstract && !x.FullName.StartsWith("<>f__AnonymousType")).ToList());
 
             Type type = types.FirstOrDefault(x => x.Name == name);

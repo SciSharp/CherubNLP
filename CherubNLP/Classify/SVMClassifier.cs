@@ -49,7 +49,7 @@ namespace CherubNLP.Classify
 
         public void SVMClassifierTrain(List<Sentence> sentences, ClassifyOptions options, SvmType svm = SvmType.C_SVC, KernelType kernel = KernelType.RBF, bool probability = true, string outputFile = null)
         {
-            var tfidf = new TfIdfFeatureExtractor();
+            var tfidf = new TfidfFeatureExtractor();
             tfidf.Dimension = options.Dimension;
             tfidf.Sentences = sentences;
             tfidf.CalBasedOnCategory();

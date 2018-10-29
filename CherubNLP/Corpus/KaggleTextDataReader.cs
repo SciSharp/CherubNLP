@@ -36,13 +36,13 @@ namespace CherubNLP.Corpus
                 {
                     var id = line.Substring(1, 7);
                     var label = line.Substring(line.Length - 4, 3);
-                    var text = line.Substring(9, line.Length - 18);
+                    var text = line.Substring(11, line.Length - 18);
 
                     sentences.Add(new Sentence
                     {
                         Id = id,
-                        Text = label,
-                        Label = text
+                        Text = text,
+                        Label = label
                     });
 
                     line = reader.ReadLine();
@@ -50,12 +50,7 @@ namespace CherubNLP.Corpus
                 
             }
 
-            return sentences.Skip(1).Select(x => new Sentence
-            {
-                Id = x.Id.Substring(1, x.Id.Length - 2),
-                Text = x.Text.Substring(1, x.Text.Length - 2),
-                Label = x.Label.Substring(1, x.Label.Length - 2)
-            }).ToList();
+            return sentences;
         }
     }
 }

@@ -1,0 +1,45 @@
+﻿using CherubNLP;
+using CherubNLP.Tag;
+using JiebaNet.Segmenter.PosSeg;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+
+namespace BotSharp.Core.Engines.Jieba.NET
+{
+    public class JiebaTagger : ITagger
+    {
+        private PosSegmenter posSeg;
+
+        public void Tag(Sentence sentence, TagOptions options)
+        {
+            Init();
+
+            var tokens = posSeg.Cut(sentence.Text).ToList();
+
+            for(int i = 0; i < sentence.Words.Count; i++)
+            {
+                sentence.Words[i].Pos = tokens[i].Flag;
+                sentence.Words[i].Tag = tokens[i].Flag;
+            }
+        }
+
+        public void Train(List<Sentence> sentences, TagOptions options)
+        {
+            
+        }
+
+        private void Init()
+        {
+            if (posSeg == null)
+            {
+                string contentDir = AppDomain.CurrentDomain.GetData("DataPath").ToString();
+                AppDomain.CurrentDomain.SetData("JiebaConfigFileDir", contentDir);
+
+                posSeg = new PosSegmenter();
+            }
+        }
+    }
+}

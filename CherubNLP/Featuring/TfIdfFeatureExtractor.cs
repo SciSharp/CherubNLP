@@ -25,10 +25,11 @@ using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace CherubNLP.Featuring
 {
-    public class TfIdfFeatureExtractor : IFeatureExtractor
+    public class TfidfFeatureExtractor : IFeatureExtractor
     {
         public List<Sentence> Sentences { get; set; }
 
@@ -39,7 +40,6 @@ namespace CherubNLP.Featuring
 
         public List<Tuple<string, int>> Dictionary { get; set; }
         public List<string> Features { get; set; }
-        //public Shape Shape { get; set; }
         public string ModelFile { get; set; }
 
         public void Extract(Sentence sentence)
@@ -80,7 +80,7 @@ namespace CherubNLP.Featuring
 
             tfs = new List<Tuple<String, double>>();
 
-            Sentences.ForEach(sent =>
+            Parallel.ForEach(Sentences, (sent) =>
             {
                 sent.Words.Where(x => x.IsAlpha).ToList().ForEach(word =>
                 {
@@ -97,6 +97,24 @@ namespace CherubNLP.Featuring
                     tfs.Add(new Tuple<string, double>(word.Lemma, word.Vector));
                 });
             });
+
+            /*Sentences.ForEach(sent =>
+            {
+                sent.Words.Where(x => x.IsAlpha).ToList().ForEach(word =>
+                {
+                    // TF
+                    int c1 = sent.Words.Count(x => x.Lemma == word.Lemma);
+                    double tf = (c1 + 1.0) / sent.Words.Count();
+
+                    // IDF
+                    var c2 = Sentences.Count(s => s.Words.Select(x => x.Lemma).Contains(word.Lemma));
+                    double idf = Math.Log(Sentences.Count / (c2 + 1.0));
+
+                    word.Vector = tf * idf;
+
+                    tfs.Add(new Tuple<string, double>(word.Lemma, word.Vector));
+                });
+            });*/
         }
 
         public void CalBasedOnCategory()
@@ -135,7 +153,7 @@ namespace CherubNLP.Featuring
                         var c2 = 0;
                         allTextByCategory.ForEach(all =>
                         {
-                            if(Regex.IsMatch(all.Item2, word))
+                            if(Regex.IsMatch(all.Item2, word + @"[\s,\.]"))
                             {
                                 c2++;
                             }

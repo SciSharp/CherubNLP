@@ -35,7 +35,6 @@ namespace CherubNLP.Featuring
 
         public List<Tuple<string, int>> Dictionary { get; set; }
         public List<string> Features { get; set; }
-        //public Shape Shape { get; set; }
         public string ModelFile { get; set; }
 
         public void Vectorize(List<string> features)

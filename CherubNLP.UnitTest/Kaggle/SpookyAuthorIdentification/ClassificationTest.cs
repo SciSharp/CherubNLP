@@ -34,13 +34,13 @@ namespace CherubNLP.UnitTest.Kaggle
             sentences = newSentences.ToList();
 
             sentences.Shuffle();
-            var dataset = sentences.Split(0.7M);
+            var dataset = sentences.Take(2000).ToList().Split(0.7M);
 
             var options = new ClassifyOptions
             {
-                //ModelFilePath = Path.Combine(Configuration.GetValue<String>("MachineLearning:dataDir"), "Text Classification", "cooking.stackexchange", "nb.model"),
-                //TrainingCorpusDir = Path.Combine(Configuration.GetValue<String>("MachineLearning:dataDir"), "Text Classification", "cooking.stackexchange"),
-                Dimension = 100
+                ModelDir = AppContext.BaseDirectory,
+                ModelFilePath = Path.Combine(AppContext.BaseDirectory, "nb.model"),
+                Dimension = 300
             };
             var classifier = new ClassifierFactory<SentenceFeatureExtractor>(options, SupportedLanguage.English);
             classifier.GetClassifer("NaiveBayesClassifier");
