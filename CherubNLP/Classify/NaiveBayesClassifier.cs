@@ -16,10 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-using Bigtree.Algorithm;
 using Bigtree.Algorithm.Bayes;
-using Bigtree.Algorithm.Estimators;
-using Bigtree.Algorithm.Extensions;
 using Bigtree.Algorithm.Features;
 using Bigtree.Algorithm.Statistics;
 using CherubNLP.Featuring;
@@ -54,7 +51,7 @@ namespace CherubNLP.Classify
 
         public void Train(List<Sentence> sentences, ClassifyOptions options)
         {
-            var tfidf = new TfIdfFeatureExtractor();
+            var tfidf = new TfidfFeatureExtractor();
             tfidf.Dimension = options.Dimension;
             tfidf.Sentences = sentences;
             tfidf.CalBasedOnCategory();
