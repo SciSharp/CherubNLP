@@ -18,7 +18,13 @@
   <ItemGroup>
     <PackageReference Include="Bigtree.Algorithm" Version="0.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="NumSharp" Version="0.5.0" />
+    <PackageReference Include="NumSharp" Version="0.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\NumSharp\src\NumSharp.Core\NumSharp.Core.csproj" />
+    <ProjectReference Include="..\..\Pandas.NET\src\PandasNET\PandasNET.csproj" />
+    <ProjectReference Include="..\..\SciSharp-Learn\src\SciSharpLearn.Core\SciSharpLearn.Core.csproj" />
   </ItemGroup>
 
 </Project>
