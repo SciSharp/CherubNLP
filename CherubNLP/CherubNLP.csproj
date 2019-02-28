@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.1.1</Version>
+    <Version>0.2.0</Version>
     <Authors>Haiping Chen</Authors>
     <RepositoryUrl>https://github.com/Oceania2018/CherubNLP</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -13,18 +13,14 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Upgrade dependency.</PackageReleaseNotes>
+    <AssemblyVersion>0.2.0.0</AssemblyVersion>
+    <FileVersion>0.2.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Bigtree.Algorithm" Version="0.2.0" />
+    <PackageReference Include="Bigtree.Algorithm" Version="0.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
-    <PackageReference Include="NumSharp" Version="0.6.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\NumSharp\src\NumSharp.Core\NumSharp.Core.csproj" />
-    <ProjectReference Include="..\..\Pandas.NET\src\PandasNET\PandasNET.csproj" />
-    <ProjectReference Include="..\..\SciSharp-Learn\src\SciSharpLearn.Core\SciSharpLearn.Core.csproj" />
+    <PackageReference Include="NumSharp" Version="0.7.3" />
   </ItemGroup>
 
 </Project>
