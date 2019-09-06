@@ -129,6 +129,7 @@ namespace CherubNLP.Tokenize
             PUNCTUATION.Add(new Tuple<string, string>(@"([^\.])(\.)([\]\)}>" + "\"" + @"\\'»”’ ]*)\s*$", "$1 $2 $3 "));
             PUNCTUATION.Add(new Tuple<string, string>(@"([:,])([^\d])", " $1 $2"));
             PUNCTUATION.Add(new Tuple<string, string>(@"([:,])$", " $1 "));
+            PUNCTUATION.Add(new Tuple<string, string>(@"([:.])([^\d])", " $1 $2"));
             PUNCTUATION.Add(new Tuple<string, string>(@"(\.\.\.)", " $1 "));
             PUNCTUATION.Add(new Tuple<string, string>(@"([;@#$%&])", " $1 "));
             PUNCTUATION.Add(new Tuple<string, string>(@"([^\.])(\.)([\]\)}>" + "\"" + @"']*)\s*$", "$1 $2 $3 "));

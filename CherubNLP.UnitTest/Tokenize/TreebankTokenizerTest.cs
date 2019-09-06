@@ -117,5 +117,34 @@ namespace CherubNLP.UnitTest.Tokenize
             Assert.IsTrue(tokens[4].Text == ".");
             Assert.IsTrue(tokens[4].Start == 13);
         }
+
+        [TestMethod]
+        public void ReplaceConventionsIncludeMultipleSymbol()
+        {
+            var tokenizer = new TokenizerFactory(new TokenizationOptions
+            {
+            }, SupportedLanguage.English);
+            tokenizer.GetTokenizer<TreebankTokenizer>();
+
+            var tokens = tokenizer.Tokenize("I jump. And you?");
+
+            Assert.IsTrue(tokens[0].Text == "I");
+            Assert.IsTrue(tokens[0].Start == 0);
+
+            Assert.IsTrue(tokens[1].Text == "jump");
+            Assert.IsTrue(tokens[1].Start == 2);
+
+            Assert.IsTrue(tokens[2].Text == ".");
+            Assert.IsTrue(tokens[2].Start == 6);
+
+            Assert.IsTrue(tokens[3].Text == "And");
+            Assert.IsTrue(tokens[3].Start == 8);
+
+            Assert.IsTrue(tokens[4].Text == "you");
+            Assert.IsTrue(tokens[4].Start == 12);
+
+            Assert.IsTrue(tokens[5].Text == "?");
+            Assert.IsTrue(tokens[5].Start == 15);
+        }
     }
 }
