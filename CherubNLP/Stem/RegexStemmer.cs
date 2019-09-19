@@ -34,7 +34,7 @@ namespace CherubNLP.Stem
         static string _pattern;
         public static string PATTERN => GetPattern();
 
-        private Regex _regex;
+        static Regex _regex;
 
         static Dictionary<string, string> replacements = new Dictionary<string, string>();
 
@@ -54,6 +54,8 @@ namespace CherubNLP.Stem
                 replacements["s"] = "";
 
                 _pattern = string.Join("$|", replacements.Keys) + "$";
+
+                _regex = new Regex(_pattern);
             }
 
             return _pattern;
@@ -61,12 +63,11 @@ namespace CherubNLP.Stem
 
         public string Stem(string word, StemOptions options)
         {
-            _regex = new Regex(options.Pattern);
-
             var match = _regex.Matches(word).Cast<Match>().FirstOrDefault();
-        
-            return (match == null ? word : word.Substring(0, match.Index)) +
-                replacements[match.Value];
+
+            return match == null ?
+                word :
+                word.Substring(0, match.Index) + replacements[match.Value];
         }
     }
 }
