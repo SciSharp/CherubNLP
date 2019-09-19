@@ -2,9 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.2.1</Version>
+    <Version>0.2.2</Version>
     <Authors>Haiping Chen</Authors>
-    <RepositoryUrl>https://github.com/Oceania2018/CherubNLP</RepositoryUrl>
+    <RepositoryUrl>https://github.com/SciSharp/CherubNLP</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>NLP</PackageTags>
     <PackageLicenseUrl>https://github.com/Oceania2018/CherubNLP/blob/master/LICENSE</PackageLicenseUrl>
@@ -12,11 +12,12 @@
     <PackageProjectUrl>https://github.com/SciSharp/CherubNLP</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageReleaseNotes>Upgrade dependency.</PackageReleaseNotes>
-    <AssemblyVersion>0.2.1.0</AssemblyVersion>
-    <FileVersion>0.2.1.0</FileVersion>
+    <PackageReleaseNotes>Add more stemming regex.</PackageReleaseNotes>
+    <AssemblyVersion>0.2.2.0</AssemblyVersion>
+    <FileVersion>0.2.2.0</FileVersion>
     <Company>https://github.com/SciSharp</Company>
-    <Description>.NET text analysis tool.</Description>
+    <Description>.NET text analysis tool.
+Tokenize, Stemming  and Lemmatization.</Description>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

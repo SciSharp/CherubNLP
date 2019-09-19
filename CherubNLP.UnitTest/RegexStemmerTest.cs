@@ -14,12 +14,32 @@ namespace CherubNLP.UnitTest
         {
             var stemmer = new StemmerFactory<RegexStemmer>(new StemOptions
             {
-                Pattern = RegexStemmer.DEFAULT
+                Pattern = RegexStemmer.PATTERN
             }, SupportedLanguage.English);
 
             var stem = stemmer.Stem("doing");
-
             Assert.IsTrue(stem == "do");
+
+            stem = stemmer.Stem("ponies");
+            Assert.IsTrue(stem == "poni");
+
+            stem = stemmer.Stem("caresses");
+            Assert.IsTrue(stem == "caress");
+
+            stem = stemmer.Stem("cats");
+            Assert.IsTrue(stem == "cat");
+
+            stem = stemmer.Stem("am");
+            Assert.IsTrue(stem == "be");
+
+            stem = stemmer.Stem("are");
+            Assert.IsTrue(stem == "be");
+
+            stem = stemmer.Stem("is");
+            Assert.IsTrue(stem == "be");
+
+            stem = stemmer.Stem("were");
+            Assert.IsTrue(stem == "be");
         }
     }
 }

@@ -31,9 +31,33 @@ namespace CherubNLP.Stem
     /// </summary>
     public class RegexStemmer : IStemmer
     {
-        public const string DEFAULT = "ing$|s$|e$|able$";
+        static string _pattern;
+        public static string PATTERN => GetPattern();
 
         private Regex _regex;
+
+        static Dictionary<string, string> replacements = new Dictionary<string, string>();
+
+        private static string GetPattern()
+        {
+            if (string.IsNullOrEmpty(_pattern))
+            {
+                replacements["able"] = "";
+                replacements["were"] = "be";
+                replacements["sses"] = "ss";
+                replacements["ies"] = "i";
+                replacements["are"] = "be";
+                replacements["ing"] = "";
+                replacements["am"] = "be";
+                replacements["es"] = "";
+                replacements["is"] = "be";
+                replacements["s"] = "";
+
+                _pattern = string.Join("$|", replacements.Keys) + "$";
+            }
+
+            return _pattern;
+        }
 
         public string Stem(string word, StemOptions options)
         {
@@ -41,7 +65,8 @@ namespace CherubNLP.Stem
 
             var match = _regex.Matches(word).Cast<Match>().FirstOrDefault();
         
-            return match == null ? word : word.Substring(0, match.Index);
+            return (match == null ? word : word.Substring(0, match.Index)) +
+                replacements[match.Value];
         }
     }
 }
