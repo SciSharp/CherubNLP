@@ -42,6 +42,9 @@ namespace CherubNLP.Stem
         {
             if (string.IsNullOrEmpty(_pattern))
             {
+                replacements["nning"] = "n"; // running
+                replacements["pping"] = "p"; // skipping
+                replacements["tting"] = "t"; // putting
                 replacements["able"] = "";
                 replacements["were"] = "be";
                 replacements["sses"] = "ss";

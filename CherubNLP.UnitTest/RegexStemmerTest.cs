@@ -40,6 +40,9 @@ namespace CherubNLP.UnitTest
 
             stem = stemmer.Stem("were");
             Assert.IsTrue(stem == "be");
+
+            stem = stemmer.Stem("running");
+            Assert.IsTrue(stem == "run");
         }
     }
 }

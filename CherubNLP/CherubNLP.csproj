@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.2.3</Version>
+    <Version>0.2.4</Version>
     <Authors>Haiping Chen</Authors>
     <RepositoryUrl>https://github.com/SciSharp/CherubNLP</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
@@ -13,21 +13,27 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Add more stemming regex.</PackageReleaseNotes>
-    <AssemblyVersion>0.2.3.0</AssemblyVersion>
-    <FileVersion>0.2.3.0</FileVersion>
+    <AssemblyVersion>0.2.4.0</AssemblyVersion>
+    <FileVersion>0.2.4.0</FileVersion>
     <Company>https://github.com/SciSharp</Company>
     <Description>.NET text analysis tool.
 Tokenize, Stemming  and Lemmatization.</Description>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>DEBUG;TRACE</DefineConstants>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Bigtree.Algorithm" Version="0.3.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
-    <PackageReference Include="TensorFlow.NET" Version="0.11.2" />
+    <PackageReference Include="FastText.NetWrapper" Version="1.0.35" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="TensorFlow.NET" Version="0.14.2" />
   </ItemGroup>
 
 </Project>

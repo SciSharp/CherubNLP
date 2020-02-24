@@ -1,4 +1,5 @@
 ﻿using CherubNLP.Txt2Vec;
+using FastText.NetWrapper;
 using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
@@ -11,18 +12,16 @@ using Txt2Vec;
 namespace CherubNLP.UnitTest.Vector
 {
     [TestClass]
-    public class Word2VecTest : TestEssential
+    public class FastTextTest : TestEssential
     {
         [TestMethod]
         public void Word2Vec()
         {
-            string sentence = "stop this song";
-            List<string> words = sentence.Split(' ').ToList();
-            Args args = new Args();
-            args.ModelFile = @"C:\Users\bpeng\Desktop\BoloReborn\Txt2VecDemo\wordvec_enu.bin";
-            VectorGenerator vg = new VectorGenerator(args);
-
-            vg.Distance(words);
+            using (var fastText = new FastTextWrapper())
+            {
+                fastText.LoadModel(Path.Combine(dataDir, "dbpedia.ftz"));
+                var vector = fastText.GetSentenceVector("Can I use a larger crockpot than the recipe calls for?");
+            }
         }
     }
 }
