@@ -2,20 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>0.3.0</Version>
+    <Version>0.4.0</Version>
     <Authors>Haiping Chen</Authors>
     <RepositoryUrl>https://github.com/SciSharp/CherubNLP</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageTags>NLP</PackageTags>
-    <PackageLicenseUrl>https://github.com/Oceania2018/CherubNLP/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
     <Copyright>Apache 2.0</Copyright>
     <PackageProjectUrl>https://github.com/SciSharp/CherubNLP</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageReleaseNotes>Add more stemming regex.
-Add Cosine Similarity algorithm.</PackageReleaseNotes>
-    <AssemblyVersion>0.3.0.0</AssemblyVersion>
-    <FileVersion>0.3.0.0</FileVersion>
+Add Cosine Similarity algorithm.
+Upgrade FastText wrapper to v1.2.3.</PackageReleaseNotes>
+    <AssemblyVersion>0.4.0.0</AssemblyVersion>
+    <FileVersion>0.4.0.0</FileVersion>
     <Company>https://github.com/SciSharp</Company>
     <Description>.NET text analysis tool.
 Tokenize, Stemming  and Lemmatization.</Description>
@@ -32,10 +33,10 @@ Tokenize, Stemming  and Lemmatization.</Description>
 
   <ItemGroup>
     <PackageReference Include="Bigtree.Algorithm" Version="0.3.0" />
-    <PackageReference Include="FastText.NetWrapper" Version="1.0.37" />
+    <PackageReference Include="FastText.NetWrapper" Version="1.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="NumSharp.Lite" Version="0.1.7" />
-    <PackageReference Include="TensorFlow.NET" Version="0.15.1" />
+    <PackageReference Include="NumSharp.Lite" Version="0.1.9" />
+    <PackageReference Include="TensorFlow.NET" Version="0.30.0" />
   </ItemGroup>
 
 </Project>

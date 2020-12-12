@@ -20,7 +20,7 @@ namespace CherubNLP
             }
         }
 
-        static double CalCosine(float[] vector1, float[] vector2)
+        public static double CalCosine(float[] vector1, float[] vector2)
         {
             double a = np.dot(vector1, vector2);
             if (a == 0) return 0;
