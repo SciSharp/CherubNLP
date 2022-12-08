@@ -34,7 +34,7 @@ Tokenize, Stemming  and Lemmatization.</Description>
   <ItemGroup>
     <PackageReference Include="Bigtree.Algorithm" Version="0.3.0" />
     <PackageReference Include="FastText.NetWrapper" Version="1.2.3" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="TensorFlow.NET" Version="0.40.0" />
   </ItemGroup>
 
