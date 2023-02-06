@@ -1,10 +1,13 @@
 ﻿using FastText.NetWrapper;
-using NumSharp;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Tensorflow;
+using Tensorflow.NumPy;
+using static Tensorflow.Binding;
+using static Tensorflow.KerasApi;
 
 namespace CherubNLP
 {
@@ -20,15 +23,10 @@ namespace CherubNLP
             }
         }
 
-        public static double CalCosine(float[] vector1, float[] vector2)
+        public static double CalCosine(NDArray vector1, NDArray vector2)
         {
-            double a = np.dot(vector1, vector2);
-            if (a == 0) return 0;
-
-            double b = np.sqrt(np.sum(np.square(vector1))) * np.sqrt(np.sum(np.square(vector2)));
-            if (b == 0) return 0;
-
-            return a / b;
+            var cosine_loss = keras.losses.CosineSimilarity(axis: 0);
+            return cosine_loss.Call(vector1, vector2).numpy();
         } 
     }
 }

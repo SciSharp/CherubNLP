@@ -1,12 +1,11 @@
 ﻿using FastText.NetWrapper;
-using Microsoft.Extensions.Configuration;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using NumSharp;
+using Tensorflow.NumPy;
 
 namespace CherubNLP.UnitTest.Vector
 {
@@ -32,10 +31,11 @@ namespace CherubNLP.UnitTest.Vector
                 "The Cosine Similarity function computes the similarity of two lists of numbers.",
                 "Compute the similarity of two hardcoded lists.",
                 "We can compute the similarity of two hardcoded lists.",
-                "Coronavirus app could trace your contacts without sacrificing your privacy"
+                "Coronavirus app could trace your contacts without sacrificing your privacy",
+                "We can use Cosine to compute the similarity of two lists."
             }, Path.Combine(dataDir, "dbpedia.ftz"));
 
-            Assert.AreEqual(new[] { 0, 4, 1, 3, 2 }, np.argsort<double>(similarities));
+            Assert.AreEqual(new[] { 5, 2, 3, 1, 4, 0 }, np.argsort(similarities));
         }
     }
 }
